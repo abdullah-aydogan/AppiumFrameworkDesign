@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import pageObjects.android.FormPage;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -15,10 +16,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-public class BaseTest {
+public class AndroidBaseTest {
 
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
+    public FormPage formPage;
 
     @BeforeClass
     public void configureAppium() throws URISyntaxException, MalformedURLException {
@@ -39,6 +41,8 @@ public class BaseTest {
 
         driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        formPage = new FormPage(driver);
     }
 
     public void longPressAction(WebElement ele) {

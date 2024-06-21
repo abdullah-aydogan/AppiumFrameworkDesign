@@ -57,8 +57,9 @@ public class FormPage extends AndroidActions {
         driver.findElement(By.xpath("//android.widget.TextView[@text='" + countryName + "']")).click();
     }
 
-    public void submitForm() {
+    public ProductCatalogue submitForm() {
 
         shopButton.click();
+        return new ProductCatalogue(driver);
     }
 }
