@@ -9,12 +9,13 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IOSActions {
+public class IOSActions extends AppiumUtils {
 
     IOSDriver driver;
 
     public IOSActions(IOSDriver driver) {
 
+        super(driver);
         this.driver = driver;
     }
 
