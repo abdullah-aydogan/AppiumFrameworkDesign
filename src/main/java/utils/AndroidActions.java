@@ -23,31 +23,8 @@ public class AndroidActions extends AppiumUtils {
         );
     }
 
-    public void scrollToEndAction() {
-
-        boolean canScrollMore;
-
-        do {
-            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture",
-                    ImmutableMap.of("left", 100, "top", 100, "width", 200, "height", 200,
-                            "direction", "down", "percent", 3.0
-                    )
-            );
-        }
-
-        while(canScrollMore);
-    }
-
     public void scrollToText(String text) {
 
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + text + "\"));"));
-    }
-
-    public void swipeAction(WebElement ele, String direction) {
-
-        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) ele).getId(),
-                "direction", direction, "percent", 0.75, "speed", 5000
-        ));
     }
 }

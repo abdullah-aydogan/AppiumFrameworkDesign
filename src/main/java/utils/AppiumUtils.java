@@ -3,6 +3,8 @@ package utils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AppiumUtils {
+
+    public AppiumDriverLocalService service;
 
     public double getFormattedAmount(String amount) {
 
@@ -37,9 +41,14 @@ public class AppiumUtils {
         return data;
     }
 
-    public void waitForElementToAppear(WebElement ele, AppiumDriver driver) {
+    public AppiumDriverLocalService startAppiumServer(String ipAddress, int port) {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.attributeContains(ele, "text", "Cart"));
+        String appiumJSPath = "C:\\Users\\abdullah.aydogan\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js";
+
+        service = new AppiumServiceBuilder().withAppiumJS(new File(appiumJSPath))
+            .withIPAddress(ipAddress).usingPort(port).build();
+
+        service.start();
+        return service;
     }
 }

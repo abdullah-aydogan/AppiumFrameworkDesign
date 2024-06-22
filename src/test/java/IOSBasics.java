@@ -1,7 +1,7 @@
-import io.appium.java_client.AppiumBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.ios.AlertViews;
+import testUtils.IOSBaseTest;
 
 public class IOSBasics extends IOSBaseTest {
 

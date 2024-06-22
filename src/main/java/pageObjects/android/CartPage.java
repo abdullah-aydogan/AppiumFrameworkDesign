@@ -38,11 +38,6 @@ public class CartPage extends AndroidActions {
     @AndroidFindBy(className = "android.widget.CheckBox")
     public WebElement checkBox;
 
-    public List<WebElement> getProductList() {
-
-        return productList;
-    }
-
     public double getProductsSum() {
 
         int count = productList.size();
@@ -67,10 +62,5 @@ public class CartPage extends AndroidActions {
 
         longPressAction(terms);
         acceptButton.click();
-    }
-
-    public void submitOrder() {
-
-
     }
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import testUtils.AndroidBaseTest;
 
 public class ECommerce_TC_2 extends AndroidBaseTest {
 
