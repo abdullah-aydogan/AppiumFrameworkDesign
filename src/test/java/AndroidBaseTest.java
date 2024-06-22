@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pageObjects.android.FormPage;
+import utils.AppiumUtils;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -16,7 +17,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-public class AndroidBaseTest {
+public class AndroidBaseTest extends AppiumUtils {
 
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
