@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ECommerce_TC_4_Hybrid extends AndroidBaseTest {
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData", groups = {"Smoke"})
     public void fillForm(HashMap<String, String> input) throws InterruptedException {
 
         formPage.setNameField(input.get("name"));
@@ -36,7 +36,7 @@ public class ECommerce_TC_4_Hybrid extends AndroidBaseTest {
         cartPage.acceptTermsConditions();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void backActivity() {
 
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
